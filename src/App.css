@@ -1,42 +1,166 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  padding: 20px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.repo-item {
+  margin-bottom: 10px;
+  position: relative;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.repo-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.repo-name {
+  margin-left: 5px;
+  font-size: 16px;
 }
 
-.card {
-  padding: 2em;
+.file-tree {
+  margin-left: 20px;
+  position: relative;
+  padding-left: 10px;
+  border-left: 2px solid #d97757;
 }
 
-.read-the-docs {
-  color: #888;
+.tree-item-container {
+  position: relative;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.tree-lines {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.tree-line-vertical {
+  width: 2px;
+  background-color: #d97757;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.tree-line-horizontal {
+  width: 10px;
+  height: 2px;
+  background-color: #d97757;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.tree-content {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.item-name {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.folder-icon {
+  color: #d97757;
+}
+
+.file-icon {
+  color: #ffffff;
+}
+
+.download-icon {
+  color: #d97757;
+  width: 14px;
+  height: 14px;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.download-btn:hover {
+  opacity: 0.7;
+}
+
+.tree-item-container.last > .tree-item > .tree-lines > .tree-line-vertical {
+  height: 50%;
+}
+
+.tree-children {
+  padding-left: 12px;
+}
+
+/* Adjustments for root level items */
+.repo-list > .tree-item-container > .tree-item > .tree-lines {
+  left: 0;
+}
+
+.repo-list
+  > .tree-item-container
+  > .tree-item
+  > .tree-lines
+  > .tree-line-horizontal {
+  left: 0;
+}
+
+.repo-list > .tree-item-container > .tree-item > .tree-content {
+  padding-left: 15px;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-color: #d97757;
+  color: black;
+  font-size: large;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  background-color: #d97757;
+  color: black;
+  font-size: large;
 }
