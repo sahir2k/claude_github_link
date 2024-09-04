@@ -1,5 +1,5 @@
-const CLIENT_ID = "Ov23li1JeUkr5zPqac4k";
-const WORKER_URL = "https://github-oauth-worker.sahir.workers.dev";
+const CLIENT_ID = "";
+const WORKER_URL = "";
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "login") {
