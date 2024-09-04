@@ -6,8 +6,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       'input[data-testid="project-doc-upload"]'
     );
     if (fileInput) {
-      // Create a File object from the data sent from the popup
-      const file = new File([request.fileData], request.fileName, {
+      // Decode base64 data
+      const binaryString = atob(request.fileData);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+
+      // Create a Blob from the Uint8Array
+      const blob = new Blob([bytes], { type: request.fileType });
+
+      // Create a File object from the blob
+      const file = new File([blob], request.fileName, {
         type: request.fileType,
       });
 
@@ -21,6 +31,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       // Dispatch a change event on the file input
       const event = new Event("change", { bubbles: true });
       fileInput.dispatchEvent(event);
+
+      sendResponse({ success: true });
+    } else {
+      sendResponse({ success: false, error: "File input not found" });
     }
   }
+  return true; // Indicates that the response will be sent asynchronously
 });
