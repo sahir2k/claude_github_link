@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "GitHub OAuth Extension",
+  "version": "2.0",
+  "description": "Access GitHub repositories and files",
+  "permissions": [
+    "identity",
+    "storage",
+    "tabs",
+    "https://api.github.com/*",
+    "https://github-oauth-worker.sahir.workers.dev/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
