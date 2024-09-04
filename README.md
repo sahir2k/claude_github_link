@@ -72,12 +72,6 @@ To run the extension in development mode:
 
 3. The extension will automatically reload when you make changes to the code
 
-## Important Notes
-
-- Keep your `CLIENT_ID`, Client Secret, and `WORKER_URL` private and do not commit them to version control
-- Ensure your Cloudflare Worker is properly configured to handle the OAuth flow
-- The extension ID mentioned in the GitHub OAuth App setup will be available after you load the extension in Chrome for the first time
-
 ## License
 
 [MIT License](LICENSE)
